@@ -1,0 +1,21 @@
+version: '3.7'
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  probes-application:
+    networks:
+      - backend
+    build:
+      context: .
+    image: probes-application
+    hostname: probes-application
+    ports:
+      - "8080:8080"
+    init: true
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=jdbc:postgresql://db:5432/probes_db
