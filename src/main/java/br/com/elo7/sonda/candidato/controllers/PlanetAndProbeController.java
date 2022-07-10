@@ -1,4 +1,4 @@
-package br.com.elo7.sonda.candidato.controller;
+package br.com.elo7.sonda.candidato.controllers;
 
 import java.util.List;
 
