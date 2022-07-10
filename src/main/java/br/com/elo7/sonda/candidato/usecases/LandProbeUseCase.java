@@ -1,6 +1,6 @@
 package br.com.elo7.sonda.candidato.usecases;
 
-import br.com.elo7.sonda.candidato.domain.CardinalPoints;
+import br.com.elo7.sonda.candidato.domain.Direction;
 import br.com.elo7.sonda.candidato.domain.entities.PlanetEntity;
 import br.com.elo7.sonda.candidato.domain.entities.ProbeEntity;
 import br.com.elo7.sonda.candidato.infrastructure.repositories.PlanetsRepository;
@@ -35,7 +35,7 @@ public class LandProbeUseCase {
             throw new RuntimeException("This land is out of planet bounderies");
         }
 
-        if (CardinalPoints.valueOfLabel(landPosition.getDirection()) == null ) {
+        if (!Direction.isAValidDirection(landPosition.getDirection())) {
             throw new RuntimeException("This is not a valid direction");
         }
 
