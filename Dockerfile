@@ -3,7 +3,7 @@ FROM maven:3.8-openjdk-17-slim AS builder
 COPY src /app/src
 COPY pom.xml /app
 
-RUN mvn install -f /app/pom.xml clean package
+RUN mvn install -f /app/pom.xml clean package -DskipTests
 
 
 FROM openjdk:17-slim
