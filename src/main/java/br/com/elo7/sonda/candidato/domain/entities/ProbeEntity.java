@@ -1,4 +1,4 @@
-package br.com.elo7.sonda.candidato.infrastructure.entities;
+package br.com.elo7.sonda.candidato.domain.entities;
 
 import org.hibernate.annotations.Type;
 
