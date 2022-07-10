@@ -1,28 +1,30 @@
 package br.com.elo7.sonda.candidato.controllers;
 
+import br.com.elo7.sonda.candidato.domain.entities.ProbeEntity;
+import br.com.elo7.sonda.candidato.usecases.LandProbeDTO;
+import br.com.elo7.sonda.candidato.usecases.LandProbeUseCase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/probes")
 public class ProbesController {
 
-    /// land a probe -> pousa uma probe em um planeta, pousar pode ser entendido como "criar" uma probe?
-    /// /probes/land
-    /// recebe planeta, posição X, posição, Y, posição rosa dos ventos
-    /// retorna o objeto probe ou probe id
-    /// status 200
-    /// erros:
-    /// já existe uma sonda no lugar, retornar 409
-    /// posição de pouso fora da area do planeta, retornar 422
+    @Autowired
+    private LandProbeUseCase landProbeUseCase;
 
-    /// move a prob -> Move uma prob dentro do planeta em que ela pousou
-    /// /probes/{id}/move
-    /// recebe commands
-    /// retorna o objeto da probe
-    /// erros:
-    /// já existe uma sonda no lugar, retornar 409
-    /// posição de pouso fora da area do planeta, retornar 422
+    // TODO() - handle de erros para http
+    @PostMapping("/land")
+    public ResponseEntity<ProbeEntity> land(@RequestBody LandProbeDTO request) {
+        return ResponseEntity.ok(landProbeUseCase.land(request));
+    }
 
 
     /// provocações de possiveis cenários de falha
