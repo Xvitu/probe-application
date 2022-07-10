@@ -10,11 +10,11 @@ public class ProbeEntity {
 
     private ProbeEntity () {}
 
-    public ProbeEntity(int x, int y, char position, UUID planetId) {
+    public ProbeEntity(int x, int y, char direction, UUID planetId) {
         this.x = x;
         this.y = y;
         this.planetId = planetId;
-        this.position = position;
+        this.direction = direction;
     }
 
     @Id
@@ -32,10 +32,10 @@ public class ProbeEntity {
     @Type(type="org.hibernate.type.UUIDCharType")
     private UUID planetId;
 
-    @Column(name = "position", nullable = false)
-    private char position;
+    @Column(name = "direction", nullable = false)
+    private char direction;
 
-    public char getPosition() { return position; }
+    public char getDirection() { return direction; }
 
     public int getX() { return x; }
 
