@@ -2,20 +2,12 @@ package br.com.elo7.sonda.candidato.domain.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import br.com.elo7.sonda.candidato.usecases.MoveProbeUseCase;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.transaction.Transactional;
 import java.util.UUID;
 
 public class ProbeEntityTest {
 	
-	@Autowired
-	private MoveProbeUseCase subject;
-	
 	@Test
-	@Transactional
 	public void should_change_probe_direction_from_N_To_W_when_turnLeft() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'N', UUID.randomUUID());
 
@@ -27,7 +19,6 @@ public class ProbeEntityTest {
 	}
 	
 	@Test
-	@Transactional
 	public void should_change_probe_direction_from_W_To_S_when_turnLeft() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'W', UUID.randomUUID());
 
@@ -39,7 +30,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_direction_from_S_To_E_when_turnLeft() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'S', UUID.randomUUID());
 
@@ -51,7 +41,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_direction_from_E_To_N_when_turnLeft() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'E', UUID.randomUUID());
 
@@ -63,7 +52,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_direction_from_N_To_E_when_turnRight() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'N', UUID.randomUUID());
 
@@ -75,7 +63,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_direction_from_E_To_S_when_turnRight() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'E', UUID.randomUUID());
 
@@ -87,7 +74,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_direction_from_S_To_W_when_turnRight() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'S', UUID.randomUUID());
 
@@ -99,7 +85,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_direction_from_W_To_N_when_turnRight() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'W', UUID.randomUUID());
 
@@ -111,7 +96,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_position_from_1_1_N_To_1_2_N_when_moveForward() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'N', UUID.randomUUID());
 
@@ -123,7 +107,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_position_from_1_1_S_To_1_0_S_when_moveForward() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'S', UUID.randomUUID());
 
@@ -135,7 +118,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_position_from_1_1_W_To_0_1_W_when_moveForward() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'W', UUID.randomUUID());
 
@@ -147,7 +129,6 @@ public class ProbeEntityTest {
 	}
 
 	@Test
-	@Transactional
 	public void should_change_probe_position_from_1_1_E_To_2_1_E_when_moveForward() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'E', UUID.randomUUID());
 
