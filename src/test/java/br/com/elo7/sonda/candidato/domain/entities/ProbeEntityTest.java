@@ -13,11 +13,10 @@ public class ProbeEntityTest {
 	
 	@Autowired
 	private MoveProbeUseCase subject;
-
 	
 	@Test
 	@Transactional
-	public void should_change_probe_direction_from_N_To_W_when_receive_the_command_L() {
+	public void should_change_probe_direction_from_N_To_W_when_turnLeft() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'N', UUID.randomUUID());
 
 		probe.turnLeft();
@@ -29,7 +28,7 @@ public class ProbeEntityTest {
 	
 	@Test
 	@Transactional
-	public void should_change_probe_direction_from_W_To_S_when_receive_the_command_L() {
+	public void should_change_probe_direction_from_W_To_S_when_turnLeft() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'W', UUID.randomUUID());
 
 		probe.turnLeft();
@@ -41,7 +40,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_direction_from_S_To_E_when_receive_the_command_L() {
+	public void should_change_probe_direction_from_S_To_E_when_turnLeft() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'S', UUID.randomUUID());
 
 		probe.turnLeft();
@@ -53,7 +52,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_direction_from_E_To_N_when_receive_the_command_L() {
+	public void should_change_probe_direction_from_E_To_N_when_turnLeft() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'E', UUID.randomUUID());
 
 		probe.turnLeft();
@@ -65,7 +64,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_direction_from_N_To_E_when_receive_the_command_R() {
+	public void should_change_probe_direction_from_N_To_E_when_turnRight() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'N', UUID.randomUUID());
 
 		probe.turnRight();
@@ -77,7 +76,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_direction_from_E_To_S_when_receive_the_command_R() {
+	public void should_change_probe_direction_from_E_To_S_when_turnRight() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'E', UUID.randomUUID());
 
 		probe.turnRight();
@@ -89,7 +88,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_direction_from_S_To_W_when_receive_the_command_R() {
+	public void should_change_probe_direction_from_S_To_W_when_turnRight() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'S', UUID.randomUUID());
 
 		probe.turnRight();
@@ -101,7 +100,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_direction_from_W_To_N_when_receive_the_command_R() {
+	public void should_change_probe_direction_from_W_To_N_when_turnRight() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'W', UUID.randomUUID());
 
 		probe.turnRight();
@@ -113,7 +112,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_position_from_1_1_N_To_1_2_N_when_receive_the_command_M() {
+	public void should_change_probe_position_from_1_1_N_To_1_2_N_when_moveForward() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'N', UUID.randomUUID());
 
 		probe.moveForward(5, 5);
@@ -125,7 +124,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_position_from_1_1_S_To_1_0_S_when_receive_the_command_M() {
+	public void should_change_probe_position_from_1_1_S_To_1_0_S_when_moveForward() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'S', UUID.randomUUID());
 
 		probe.moveForward(5, 5);
@@ -137,7 +136,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_position_from_1_1_W_To_0_1_W_when_receive_the_command_M() {
+	public void should_change_probe_position_from_1_1_W_To_0_1_W_when_moveForward() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'W', UUID.randomUUID());
 
 		probe.moveForward(5, 5);
@@ -149,7 +148,7 @@ public class ProbeEntityTest {
 
 	@Test
 	@Transactional
-	public void should_change_probe_position_from_1_1_E_To_2_1_E_when_receive_the_command_M() {
+	public void should_change_probe_position_from_1_1_E_To_2_1_E_when_moveForward() {
 		ProbeEntity probe = new ProbeEntity(1, 1, 'E', UUID.randomUUID());
 
 		probe.moveForward(5, 5);
