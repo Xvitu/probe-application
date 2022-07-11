@@ -35,7 +35,7 @@ public class LandProbeUseCase {
             || landPosition.getY() > planet.get().getHeight()
             || landPosition.getX() > planet.get().getWidth()
         ) {
-            throw new OutOfPlanetBounderiesException("This land is out of planet bounderies");
+            throw new OutOfPlanetBounderiesException("This position is out of planet bounderies");
         }
 
         if (!Direction.isAValidDirection(landPosition.getDirection())) {
