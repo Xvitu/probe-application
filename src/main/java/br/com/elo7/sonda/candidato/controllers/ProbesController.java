@@ -24,7 +24,6 @@ public class ProbesController {
     @Autowired
     private MoveProbeUseCase moveProbeUseCase;
 
-    // TODO() - handle de erros para http
     @PostMapping("/land")
     public ResponseEntity<ProbeEntity> land(@RequestBody LandProbeDTO request) {
         return ResponseEntity.ok(landProbeUseCase.land(request));
