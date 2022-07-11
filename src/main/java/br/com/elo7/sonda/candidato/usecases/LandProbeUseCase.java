@@ -5,6 +5,9 @@ import br.com.elo7.sonda.candidato.domain.entities.PlanetEntity;
 import br.com.elo7.sonda.candidato.domain.entities.ProbeEntity;
 import br.com.elo7.sonda.candidato.infrastructure.repositories.PlanetsRepository;
 import br.com.elo7.sonda.candidato.infrastructure.repositories.ProbesRepository;
+import br.com.elo7.sonda.candidato.usecases.exceptions.InvalidDirectionException;
+import br.com.elo7.sonda.candidato.usecases.exceptions.OutOfPlanetBounderiesException;
+import br.com.elo7.sonda.candidato.usecases.exceptions.PlanetNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +25,7 @@ public class LandProbeUseCase {
 
         Optional<PlanetEntity> planet = this.planetsRepository.findById(landProbeDTO.getPlanetId());
 
-        if (planet.isEmpty()) { throw new RuntimeException("Planet not found"); }
+        if (planet.isEmpty()) { throw new PlanetNotFoundException("Planet not found"); }
 
         LandProbeDTO.Position landPosition = landProbeDTO.getPosition();
 
@@ -32,11 +35,11 @@ public class LandProbeUseCase {
             || landPosition.getY() > planet.get().getHeight()
             || landPosition.getX() > planet.get().getWidth()
         ) {
-            throw new RuntimeException("This land is out of planet bounderies");
+            throw new OutOfPlanetBounderiesException("This land is out of planet bounderies");
         }
 
         if (!Direction.isAValidDirection(landPosition.getDirection())) {
-            throw new RuntimeException("This is not a valid direction");
+            throw new InvalidDirectionException("This is not a valid direction");
         }
 
         ProbeEntity probe = new ProbeEntity(

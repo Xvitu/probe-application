@@ -5,6 +5,7 @@ import br.com.elo7.sonda.candidato.domain.entities.PlanetEntity;
 import br.com.elo7.sonda.candidato.domain.entities.ProbeEntity;
 import br.com.elo7.sonda.candidato.infrastructure.repositories.PlanetsRepository;
 import br.com.elo7.sonda.candidato.infrastructure.repositories.ProbesRepository;
+import br.com.elo7.sonda.candidato.usecases.exceptions.ProbeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +25,7 @@ public class MoveProbeUseCase {
         Optional<ProbeEntity> probe = this.probesRepository.findById(moveProbeDTO.getProbeId()); 
         
         if (probe.isEmpty()) {
-            throw new RuntimeException("Probe not found");
+            throw new ProbeNotFoundException("Probe not found");
         }
 
         PlanetEntity planet = this.planetsRepository.getById(probe.get().getPlanetId());
