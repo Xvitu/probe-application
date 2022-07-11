@@ -138,4 +138,48 @@ public class ProbeEntityTest {
 		assertEquals(1, probe.getY());
 		assertEquals('E', probe.getDirection());
 	}
+
+	@Test
+	public void should_change_probe_position_from_1_0_E_To_0_0_E_when_moveForward() {
+		ProbeEntity probe = new ProbeEntity(1, 0, 'E', UUID.randomUUID());
+
+		probe.moveForward(1, 1);
+
+		assertEquals(0, probe.getX());
+		assertEquals(0, probe.getY());
+		assertEquals('E', probe.getDirection());
+	}
+
+	@Test
+	public void should_change_probe_position_from_0_1_E_To_1_1_E_when_moveForward() {
+		ProbeEntity probe = new ProbeEntity(0, 1, 'W', UUID.randomUUID());
+
+		probe.moveForward(1, 1);
+
+		assertEquals(1, probe.getX());
+		assertEquals(1, probe.getY());
+		assertEquals('W', probe.getDirection());
+	}
+
+	@Test
+	public void should_change_probe_position_from_1_1_E_To_1_0_N_when_moveForward() {
+		ProbeEntity probe = new ProbeEntity(1, 1, 'N', UUID.randomUUID());
+
+		probe.moveForward(1, 1);
+
+		assertEquals(1, probe.getX());
+		assertEquals(0, probe.getY());
+		assertEquals('N', probe.getDirection());
+	}
+
+	@Test
+	public void should_change_probe_position_from_0_0_E_To_0_1_S_when_moveForward() {
+		ProbeEntity probe = new ProbeEntity(0, 0, 'S', UUID.randomUUID());
+
+		probe.moveForward(1, 1);
+
+		assertEquals(0, probe.getX());
+		assertEquals(1, probe.getY());
+		assertEquals('S', probe.getDirection());
+	}
 }
